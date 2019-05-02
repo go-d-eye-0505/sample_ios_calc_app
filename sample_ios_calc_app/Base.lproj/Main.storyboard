@@ -131,6 +131,9 @@
                                 <rect key="frame" x="15" y="370" width="290" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="割引％を入力する"/>
+                                <connections>
+                                    <segue destination="zbd-b1-eck" kind="modal" id="XDf-Eu-Fbe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -268,6 +271,9 @@
                                 <rect key="frame" x="15" y="370" width="290" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="計算する"/>
+                                <connections>
+                                    <segue destination="F3R-mx-Amg" kind="modal" id="Yip-ww-8qc"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -280,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="708.75" y="124.64788732394366"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="OyV-pZ-9e3">
             <objects>
-                <viewController id="F3R-mx-Amg" sceneMemberID="viewController">
+                <viewController id="F3R-mx-Amg" customClass="ResultViewController" customModule="sample_ios_calc_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GTB-7t-jFg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,17 +307,27 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="resultField:" destination="1qj-Ag-Gqd" eventType="editingDidEnd" id="bYf-sX-CH8"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cNx-Xw-YpG">
                                 <rect key="frame" x="15" y="94" width="290" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="計算する"/>
+                                <state key="normal" title="他の計算する"/>
+                                <connections>
+                                    <segue destination="1qj-Ag-Gqd" kind="unwind" unwindAction="restartButton:" id="7Hd-nX-rfk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <connections>
+                        <outlet property="resultField" destination="Zgr-F9-4BE" id="Po5-nM-y0p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UlI-nC-3zQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1qj-Ag-Gqd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1434" y="124"/>
         </scene>

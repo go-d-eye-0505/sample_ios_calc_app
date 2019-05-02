@@ -17,6 +17,13 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as! PercentViewController
+        if let price = Int(priceField.text!) {
+            viewController.price = price
+        }
+    }
+
     // 1ボタンのタップ
     @IBAction func tap1Button(_ sender: Any) {
         let value = priceField.text! + "1"
@@ -97,6 +104,11 @@ class ViewController: UIViewController {
 
     // クリアボタンのタップ
     @IBAction func tapClearButton(_ sender: Any) {
+        priceField.text = "0"
+    }
+
+    // 最後の画面から戻ってきたときの処理
+    @IBAction func restartButton(_ segue: UIStoryboardSegue) {
         priceField.text = "0"
     }
 }

@@ -19,7 +19,7 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
 
         let percentValue = Float(percent) / 100
-        let waribikiPrice = Float(price) / percentValue
+        let waribikiPrice = Float(price) * percentValue
         let percentOffPrice = price - Int(waribikiPrice)
         resultField.text = "\(percentOffPrice)"
     }
